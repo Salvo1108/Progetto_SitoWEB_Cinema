@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+<script>
+
+	function validaEmail(){
+	$.get("ControlloEmail?email="+$('#email').val(),function(data,status){
+	if(data=='0'){
+		$('#errore').show();
+	}
+	else{
+		$('#errore').hide();
+	}
+	});
+}
+</script>
+<title>ASR Cinema Registrazione</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/material-design-iconic-font.min.css" rel="stylesheet">
+<link href="css/cinema.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<form action="Registrazione" method="post">
+			<h2 class="form-signin-heading">Registrati!</h2>
+			Email: <input type="email" name="username" class="form-control" id="email"
+				required="required" style="width: 300px;" oninput="validaEmail()"> <span id="errore" style="color: red; display: none">Email non disponibile!</span><br>
+			Password: <input type="password" name="password" class="form-control"
+				required="required" style="width: 300px;"> <br> <br>
+			<button class="btn btn-lg btn-primary btn-block" type="submit"
+				style="width: 150px;">Invia</button>
+
+		</form>
+	</div>
+
+</body>
+</html>
